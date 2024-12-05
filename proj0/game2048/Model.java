@@ -108,6 +108,7 @@ public class Model extends Observable {
         int val = this.board.tile(col, row).value();
         for (int down = row - 1; down >= 0; down--) {
             if (this.board.tile(col, down) == null) continue;
+            if (this.board.tile(col, down).value() != val) break;
             if (this.board.tile(col, down).value() == val) {
                 this.board.move(col, row, this.board.tile(col, down));
                 this.score += this.board.tile(col, row).value();
